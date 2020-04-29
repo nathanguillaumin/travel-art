@@ -69,8 +69,6 @@ class ListChoice extends React.Component {
       
         {this.state.dataResults ? <h1></h1> : ''}
       </div>
-
-      
     );
   }
 }

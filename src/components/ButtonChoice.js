@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
 import ArtWorks from '../pages/ArtWorks';
+import { Link } from 'react-router-dom';
 
 const ButtonChoice = (props) => {
   return (
-    <Button onClick={props.onClick}>{props.name}</Button>
+    <Link to={`/art-works/${props.id}`}>
+      <button onClick={<ArtWorks />} value={props.name} />
+    </Link>
   );
 };
 
