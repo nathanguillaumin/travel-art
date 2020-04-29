@@ -1,10 +1,9 @@
 import React from 'react';
 
-function ArtWorks (e) {
-  e.preventDefault();
+function ArtWorks (props) {
   return (
     <div>
-      <p>ArtWorks page</p>
+      <p>{props.dataResults}</p>
     </div>
   );
 }

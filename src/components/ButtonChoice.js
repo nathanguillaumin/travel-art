@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Button } from 'semantic-ui-react';
 import ArtWorks from '../pages/ArtWorks';
 
 const ButtonChoice = (props) => {
   return (
-    <div>
-      <button onClick={<ArtWorks />} value={props.name} />
-    </div>
+    <Button onClick={props.onClick}>{props.name}</Button>
   );
 };
 
