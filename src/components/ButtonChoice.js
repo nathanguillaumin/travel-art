@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class ButtonChoice extends Component {
   render () {
     return (
-      <div />
+      <div>
+        <button value='American Decorative Arts' />
+      </div>
     );
   }
 }
