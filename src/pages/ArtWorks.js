@@ -1,11 +1,14 @@
 import React from 'react';
 
-function ArtWorks (props) {
-  return (
-    <div>
-      <p>{props.dataResults}</p>
-    </div>
-  );
+class ArtWorks extends React.Component {
+  render() {
+    const params = this.props.match.params;
+    return (
+      <div>
+        <p>{this.props.dataResults}<em>{params.id}</em></p>
+      </div>
+    );
+  }
 }
 
 export default ArtWorks;
