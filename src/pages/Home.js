@@ -7,7 +7,7 @@ function Home () {
     <div>
       <NavLink exact to='/' className='home' />
       <h1>Welcome on Travel Art Website</h1>
-      <NavLink exact to='/ArtWorks' className='ArtWorks'><ListChoice /></NavLink>
+      <NavLink exact to='/art-works' className='ArtWorks'><ListChoice /></NavLink>
     </div>
   );
 }

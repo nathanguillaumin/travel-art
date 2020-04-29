@@ -1,10 +1,12 @@
 import React from 'react';
 
-function ArtWorks (e) {
-  e.preventDefault();
+function ArtWorks (props) {
+  const params = props.match.params;
   return (
     <div>
-      <p>ArtWorks page</p>
+      <p>
+        ArtWorks page: <em>{params.id}</em>
+      </p>
     </div>
   );
 }
