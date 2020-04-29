@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Button } from 'semantic-ui-react';
 
 const ButtonChoice = (props) => {
   return (
-    <div>
-      <button value={props.name} />
-    </div>
+    <Button onClick={props.onClick}>{props.name}</Button>
   );
 };
 
