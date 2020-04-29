@@ -8,7 +8,7 @@ function Main () {
     <main>
       <Switch>
         <Route exact path='/'><Home /></Route>
-        <Route exact path='/art-works'><ArtWorks /></Route>
+        <Route exact path='/art-works/:id'><ArtWorks /></Route>
       </Switch>
     </main>
   );
