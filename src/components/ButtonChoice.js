@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const ButtonChoice = (props) => {
   return (
     <div>
-      <h1>{props.name}</h1>
+      <button value={props.name} />
     </div>
   );
 };
