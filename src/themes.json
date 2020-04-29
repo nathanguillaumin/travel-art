@@ -1,33 +1,33 @@
 {
-    "departmentId": 1,
+   "1": { "departmentId": 1,
     "displayName": "American Decorative Arts"
   },
-  {
+   "2": { 
     "departmentId": 5,
     "displayName": "Arts of Africa, Oceania, and the Americas"
   },
-  {
+   "3": {
     "departmentId": 6,
     "displayName": "Asian Art"
   },
-  {
+   "4": {
     "departmentId": 10,
     "displayName": "Egyptian Art"
   },
-  {
+   "5": {
     "departmentId": 11,
     "displayName": "European Paintings"
   },
-  {
+   "6": {
     "departmentId": 12,
     "displayName": "European Sculpture and Decorative Arts"
   },
-  {
+   "7": {
     "departmentId": 13,
     "displayName": "Greek and Roman Art"
   },
-  {
+   "8": {
     "departmentId": 14,
     "displayName": "Islamic Art"
-  },
+  }
 }

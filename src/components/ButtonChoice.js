@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-class ButtonChoice extends Component {
-  render () {
-    return (
-      <div>
-        <button value='American Decorative Arts' />
-      </div>
-    );
-  }
-}
+const ButtonChoice = (props) => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+    </div>
+  );
+};
 
-export default Button - choice;
+export default ButtonChoice;
