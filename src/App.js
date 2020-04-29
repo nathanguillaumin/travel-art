@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ListChoice from './components/ListChoice';
+import PaintingsCards from './components/PaintingsCards';
 
 function App () {
   return (
     <div className='App'>
-      <ListChoice />
+      <PaintingsCards />
     </div>
   );
 }

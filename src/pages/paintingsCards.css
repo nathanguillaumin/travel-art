@@ -1,0 +1,20 @@
+.paintingCard {
+  margin: auto;
+  width: 23px;
+}
+
+p {
+  font-weight: bold;
+}
+
+.textDiv {
+  border: orangered 3px solid;
+  
+  background-color: peru;
+  border-radius: 3%;
+  width: ;
+}
+
+.titleDiv, .commentDiv {
+  background-color: plum;
+}
