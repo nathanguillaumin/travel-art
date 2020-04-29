@@ -39,7 +39,6 @@ const themes =
 ];
 
 getArtWork = () => {
-  const 
   const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=&{departmentId}`;
     axios.get(url)
       .then(res => res.data)
