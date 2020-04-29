@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
 import axios from 'axios';
-import PaintingsCards from './PaintingsCards';
 import Button from 'react-bootstrap/Button';
 
 const themes =
@@ -77,18 +76,6 @@ class ListChoice extends Component {
     return (
       <div>
         {themes.map(element => <ButtonChoice className={element.class} onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} key={element.departmentId} />)}
-
-        {this.state.dataResults &&
-          this.state.dataResults.map((element) =>
-            <PaintingsCards
-              key={element.title}
-              title={element.title}
-              artist={element.artistDisplayName}
-              date={element.objectDate}
-              country={element.country}
-              image={element.primaryImageSmall}
-              comments={element.creditLine}
-            />)}
       </div>
     );
   }

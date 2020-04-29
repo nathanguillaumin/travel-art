@@ -9,7 +9,7 @@ function Home () {
       <Header />
       <NavLink exact to='/' className='home' />
       <h2>Welcome on Travel Art Website</h2>
-      <NavLink exact to='/ArtWorks/:id' className='ArtWorks'><ListChoice /></NavLink>
+      <NavLink exact to='/art-works/:id' className='ArtWorks'><ListChoice /></NavLink>
     </div>
   );
 }
