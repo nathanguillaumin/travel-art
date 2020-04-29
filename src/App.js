@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
-import ListChoice from './components/ListChoice';
+import Main from './components/Main';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App () {
   return (
-    <div className='App'>
-      <ListChoice />
-    </div>
+    <Router>
+      <div className='App'>
+        <Main />
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,83 @@
+.Button1{
+    width: 70%;
+    height: 60px;
+    background: url(../images/americanlink.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button2{
+    width: 70%;
+    height: 60px;
+    background: url(../images/african-art.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button3{
+    width: 70%;
+    height: 60px;
+    background: url(../images/asian-art.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button4{
+    width: 70%;
+    height: 60px;
+    background: url(../images/egypte.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button5{
+    width: 70%;
+    height: 60px;
+    background: url(../images/louvre.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button6{
+    width: 70%;
+    height: 60px;
+    background: url(../images/europe.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Button7{
+    width: 70%;
+    height: 60px;
+    background: url(../images/grece.jpg) 0 0 / cover no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    margin-top: 30px;
+}

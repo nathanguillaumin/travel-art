@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ButtonStyle from './ButtonStyle.css';
+import ArtWorks from '../pages/ArtWorks';
+import { Link } from 'react-router-dom';
 
 const ButtonChoice = (props) => {
   return (
-    <div className="buttonChoice">
-      <button value={props.name} />
+    <div>
+      <Link to={`/art-works/${props.id}`}>
+        <button className={props.className} onClick={<ArtWorks />} value={props.name}>{props.name}</button>
+      </Link>
     </div>
   );
-};
+}
 
 export default ButtonChoice;

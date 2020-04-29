@@ -1,58 +1,97 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
 import axios from 'axios';
+import PaintingsCards from './PaintingsCards';
+import Button from 'react-bootstrap/Button';
 
 const themes =
 [
   {
     departmentId: 1,
-    displayName: 'American Decorative Arts'
+    displayName: 'American Decorative Arts',
+    class: 'Button1'
   },
   {
     departmentId: 5,
-    displayName: 'Arts of Africa, Oceania, and the Americas'
+    displayName: 'Arts of Africa, Oceania, and the Americas',
+    class: 'Button2'
   },
   {
     departmentId: 6,
-    displayName: 'Asian Art'
+    displayName: 'Asian Art',
+    class: 'Button3'
   },
   {
     departmentId: 10,
-    displayName: 'Egyptian Art'
+    displayName: 'Egyptian Art',
+    class: 'Button4'
   },
   {
     departmentId: 11,
-    displayName: 'European Paintings'
+    displayName: 'European Paintings',
+    class: 'Button5'
   },
   {
     departmentId: 12,
-    displayName: 'European Sculpture and Decorative Arts'
+    displayName: 'European Sculpture and Decorative Arts',
+    class: 'Button6'
+  
   },
   {
     departmentId: 13,
-    displayName: 'Greek and Roman Art'
+    displayName: 'Greek and Roman Art',
+    class: 'Button7'
   },
   {
     departmentId: 14,
-    displayName: 'Islamic Art'
+    displayName: 'Islamic Art',
+    class: 'Button8'
   }
 ];
 
-getArtWork = () => {
-  const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=&{departmentId}`;
-    axios.get(url)
-      .then(res => res.data)
-      .then(data => {
-      });
+class ListChoice extends Component {
+  constructor () {
+    super();
+    this.state = {
+      departmentId: '',
+      departmentName: '',
+      dataResults: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick (name, id) {
+    this.setState(() => ({ departmentName: name, departmentId: id }), () => this.fetchOnClick(this.state.departmentId));
+  }
+
+  async fetchOnClick (elementID) {
+    const searchUrl = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${elementID}&q=cat`;
+    const objectIds = await axios.get(searchUrl).then(res => res.data.objectIDs);
+
+    const dataResults = await Promise.all(objectIds.slice(0, 10).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+
+    this.setState({ dataResults: dataResults });
+  }
+
+  render () {
+    return (
+      <div>
+        {themes.map(element => <ButtonChoice className={element.class} onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} key={element.departmentId} />)}
+
+        {this.state.dataResults &&
+          this.state.dataResults.map((element) =>
+            <PaintingsCards
+              key={element.title}
+              title={element.title}
+              artist={element.artistDisplayName}
+              date={element.objectDate}
+              country={element.country}
+              image={element.primaryImageSmall}
+              comments={element.creditLine}
+            />)}
+      </div>
+    );
   }
 }
-
-const ListChoice = (props) => {
-  return (
-    <div>
-      {themes.map(element => <ButtonChoice name={element.displayName} /> )}
-    </div>
-  );
-};
 
 export default ListChoice;
