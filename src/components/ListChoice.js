@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
 import axios from 'axios';
+import PaintingsCards from './PaintingsCards';
 
 const themes =
 [
@@ -38,7 +39,7 @@ const themes =
   }
 ];
 
-class ListChoice extends React.Component {
+class ListChoice extends Component {
   constructor () {
     super();
     this.state = {
@@ -59,18 +60,26 @@ class ListChoice extends React.Component {
 
     const dataResults = await Promise.all(objectIds.slice(0, 10).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
 
-    this.setState({dataResults: dataResults})
-}
+    this.setState({ dataResults: dataResults });
+  }
 
   render () {
     return (
       <div>
-        {themes.map(element => <ButtonChoice onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} />)}
-      
-        {this.state.dataResults ? <h1></h1> : ''}
-      </div>
+        {themes.map(element => <ButtonChoice onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} key={element.departmentId} />)}
 
-      
+        {this.state.dataResults &&
+          this.state.dataResults.map((element) =>
+            <PaintingsCards
+              key={element.title}
+              title={element.title}
+              artist={element.artistDisplayName}
+              date={element.objectDate}
+              country={element.country}
+              image={element.primaryImageSmall}
+              comments={element.creditLine}
+            />)}
+      </div>
     );
   }
 }
