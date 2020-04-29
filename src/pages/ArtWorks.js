@@ -4,9 +4,7 @@ function ArtWorks (props) {
   const params = props.match.params;
   return (
     <div>
-      <p>
-        ArtWorks page: <em>{params.id}</em>
-      </p>
+      <p>{props.dataResults}<em>{params.id}</em></p>
     </div>
   );
 }

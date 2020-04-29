@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
+import axios from 'axios';
 
 const themes =
 [
@@ -37,13 +38,39 @@ const themes =
   }
 ];
 
-const ListChoice = (props) => {
-  return (
-    <div>
-      {themes.map(element => <ButtonChoice key={element.displayName} name={element.displayName} id={element.departmentId} /> )}
+class ListChoice extends React.Component {
+  constructor () {
+    super();
+    this.state = {
+      departmentId: '',
+      departmentName: '',
+      dataResults: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    </div>
-  );
-};
+  handleClick (name, id) {
+    this.setState(() => ({ departmentName: name, departmentId: id }), () => this.fetchOnClick(this.state.departmentId));
+  }
+
+  async fetchOnClick (elementID) {
+    const searchUrl = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${elementID}&q=cat`;
+    const objectIds = await axios.get(searchUrl).then(res => res.data.objectIDs);
+
+    const dataResults = await Promise.all(objectIds.slice(0, 10).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+
+    this.setState({dataResults: dataResults})
+}
+
+  render () {
+    return (
+      <div>
+        {themes.map(element => <ButtonChoice dataResults={this.state.dataResults} onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} />)}
+      
+        {this.state.dataResults ? <h1></h1> : ''}
+      </div>
+    );
+  }
+}
 
 export default ListChoice;
