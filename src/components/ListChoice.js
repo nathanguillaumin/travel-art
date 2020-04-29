@@ -40,7 +40,7 @@ const themes =
 const ListChoice = (props) => {
   return (
     <div>
-      {themes.map(element => <ButtonChoice name={element.displayName} /> )}
+      {themes.map(element => <ButtonChoice key={element.displayName} name={element.displayName} /> )}
     </div>
   );
 };

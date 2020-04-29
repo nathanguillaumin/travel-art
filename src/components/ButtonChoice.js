@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import ArtWorks from '../pages/ArtWorks';
 
 const ButtonChoice = (props) => {
   return (
     <div>
-      <button value={props.name} />
+      <button onClick={<ArtWorks />} value={props.name} />
     </div>
   );
 };
