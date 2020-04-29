@@ -1,20 +1,31 @@
 .paintingCard {
   margin: auto;
-  width: 23px;
+  width: 280px;
+  margin-top: 60px;
 }
 
 p {
   font-weight: bold;
+  margin: 4px auto 6px;
 }
 
 .textDiv {
   border: orangered 3px solid;
-  
-  background-color: peru;
-  border-radius: 3%;
-  width: ;
+  background-color: rgb(236, 189, 142);
+  border-radius: 10px;
+  margin-top: -4px;
 }
 
 .titleDiv, .commentDiv {
-  background-color: plum;
+  background-color: rgb(206, 179, 206);
+  border-radius: 6px;
+  margin: 0 10px 10px 10px;
+}
+
+.commentDiv {
+  padding: 30px;
+}
+
+.imgArtist {
+  width: 70%;
 }

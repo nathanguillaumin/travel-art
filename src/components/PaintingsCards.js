@@ -12,7 +12,7 @@ class PaintingsCards extends Component {
   render () {
     return (
       <div className='paintingCard'>
-        <img src={src} alt={title} />
+        <img src={src} alt={title} className='imgArtist' />
 
         <div className='textDiv'>
           <div className='titleDiv'>
