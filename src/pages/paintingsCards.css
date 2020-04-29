@@ -1,7 +1,8 @@
 .paintingCard {
   margin: auto;
   width: 280px;
-  margin-top: 60px;
+  margin-top: 40px;
+  overflow-wrap: break-word;
 }
 
 p {
@@ -23,7 +24,7 @@ p {
 }
 
 .commentDiv {
-  padding: 30px;
+  padding: 0 8px 2px 8px;
 }
 
 .imgArtist {

@@ -6,6 +6,11 @@ function App () {
   return (
     <div className='App'>
       <PaintingsCards />
+      <PaintingsCards />
+      <PaintingsCards />
+      <PaintingsCards />
+      <PaintingsCards />
+      <PaintingsCards />
     </div>
   );
 }

@@ -6,7 +6,7 @@ const title = 'title';
 const year = 'year';
 const artist = 'artist';
 const country = 'country';
-const comments = 'comments';
+const comments = 'comments PAGNE SUR ANIMAL CROSSING EN FAISANT SUDO RM -R /* POUR RESET SON ILE ET TOM NOOK (ET PAS HOOK)';
 
 class PaintingsCards extends Component {
   render () {
