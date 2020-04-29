@@ -39,11 +39,7 @@ const themes =
   }
 ];
 
-<<<<<<< HEAD
-class ListChoice extends React.Component {
-=======
 class ListChoice extends Component {
->>>>>>> nathan
   constructor () {
     super();
     this.state = {

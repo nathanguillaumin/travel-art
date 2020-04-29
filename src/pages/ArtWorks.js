@@ -1,6 +1,9 @@
 import React from 'react';
 
-function ArtWorks (props) {
+class ArtWorks extends Component {
+    constructor(props) {
+        super(props)
+    }
   const params = props.match.params;
   return (
     <div>
@@ -8,5 +11,8 @@ function ArtWorks (props) {
     </div>
   );
 }
+
+
+
 
 export default ArtWorks;
