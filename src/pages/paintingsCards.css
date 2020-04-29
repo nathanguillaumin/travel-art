@@ -28,5 +28,6 @@ p {
 }
 
 .imgArtist {
-  width: 70%;
+  width: 80%;
+  border-radius: 6px;
 }
