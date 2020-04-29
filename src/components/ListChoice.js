@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
+import axios from 'axios';
 
 const themes =
 [
@@ -36,6 +37,16 @@ const themes =
     displayName: 'Islamic Art'
   }
 ];
+
+getArtWork = () => {
+  const 
+  const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=&{departmentId}`;
+    axios.get(url)
+      .then(res => res.data)
+      .then(data => {
+      });
+  }
+}
 
 const ListChoice = (props) => {
   return (
