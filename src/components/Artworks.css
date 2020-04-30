@@ -1,0 +1,22 @@
+.artWorks-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.painting-cards {
+    width: 18rem;
+    margin: 30px 30px;
+}
+
+.painting-cards:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 2px grey;
+}
+
+.paintings-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
