@@ -1,3 +1,27 @@
-#root > div > main > div > div.footer-copyright.text-center.py-3.footer-style > i {
-    color: red;
+#root > div > main > div > div > div.footer-copyright.text-center.py-3.footer-style > i {
+   color: red;
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    bottom: 5px;
+    left: 35%;
+}
+
+@media screen and (max-width: 850px) and (min-width: 700px) {
+    .footer-copyright {
+        left: 30%;
+    }
+}
+
+@media screen and (max-width: 699px) and (min-width: 500px) {
+    .footer-copyright {
+        left: 25%;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .footer-copyright {
+        left: 15%;
+    }
 }

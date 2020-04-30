@@ -1,5 +1,26 @@
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito'), url(../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+  }
+
 h1{
     font-size: 3em;
     font-weight: bolder;
     
+}
+
+.header {
+    height: 100%;
+}
+
+.div-home {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+#root > div > main > div > div > h2 {
+    font-family: 'Nunito';
 }

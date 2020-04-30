@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
+import './ButtonStyle.css';
 
 const themes =
 [
@@ -74,7 +74,7 @@ class ListChoice extends Component {
 
   render () {
     return (
-      <div>
+      <div className='div-buttons'>
         {themes.map(element => <ButtonChoice className={element.class} onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} key={element.departmentId} />)}
       </div>
     );
