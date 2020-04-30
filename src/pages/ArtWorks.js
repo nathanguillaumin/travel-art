@@ -1,17 +1,28 @@
 import React from 'react';
 import axios from 'axios';
 import PaintingsCards from '../components/PaintingsCards';
+import InfiniteScroll from "react-infinite-scroll-component";
+
+const elementsPerPage = 5;
 
 class ArtWorks extends React.Component {
   constructor() {
     super();
     this.state = {
-      dataResults: false,
+      dataResults: [],
       value : '',
-      fixDataResult: false
+      fixDataResult: [],
+      offSet: 0
     };
     this.handleChange = this.handleChange.bind(this);
-  } 
+  }
+
+  fetchMoreData = async () => {
+    const newOffSet = this.state.offSet + 1;
+    this.setState({offSet : newOffSet});
+    await this.load(newOffSet * elementsPerPage, (newOffSet + 1) * elementsPerPage)
+    console.log(this.state.dataResults)
+  }
 
   filterByPeriod(x) {
     if (x === 'BC') {
@@ -25,13 +36,17 @@ class ArtWorks extends React.Component {
     this.setState({ value: event.target.value }, () => this.filterByPeriod(this.state.value));
   }
 
-  async componentDidMount() {
+  async load (sliceBegin, sliceEnd) {
     const params = this.props.match.params;
     const searchUrl = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${params.id}&q=travel`;
     const objectIds = await axios.get(searchUrl).then(res => res.data.objectIDs);
-    const dataResults = await Promise.all(objectIds.slice(0, 20).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+    const dataResults = await Promise.all(objectIds.slice(sliceBegin, sliceEnd).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+    const newDataResult = [...this.state.dataResults, ...dataResults];
+    this.setState({ dataResults: newDataResult, fixDataResult : newDataResult });
+  }
 
-    this.setState({ dataResults: dataResults, fixDataResult: dataResults });
+  async componentDidMount() {
+   this.load(0, elementsPerPage)
   }
 
   render() {
@@ -46,11 +61,16 @@ class ArtWorks extends React.Component {
             </select>
           </label>
         </form>
+         {this.state.dataResults &&
 
-        {this.state.dataResults &&
-          this.state.dataResults.map((element) =>
+        <InfiniteScroll
+          dataLength={this.state.dataResults.length}
+          next={this.fetchMoreData}
+          hasMore={true}
+        >
+           {this.state.dataResults.map((element) =>
             <PaintingsCards
-              key={element.title}
+              key={element.objectID}
               title={element.title}
               artist={element.artistDisplayName}
               date={element.objectDate}
@@ -59,6 +79,8 @@ class ArtWorks extends React.Component {
               comments={element.creditLine}
               EndDate={element.objectEndDate}
             />)}
+        </InfiniteScroll>
+          }
       </div>
     );
   }
