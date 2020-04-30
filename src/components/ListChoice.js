@@ -34,7 +34,7 @@ const themes =
     departmentId: 12,
     displayName: 'European Sculpture and Decorative Arts',
     class: 'Button6'
-  
+
   },
   {
     departmentId: 13,

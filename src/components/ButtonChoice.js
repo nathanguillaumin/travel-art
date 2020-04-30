@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonStyle from './ButtonStyle.css';
+import './ButtonStyle.css';
 import ArtWorks from '../pages/ArtWorks';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,6 @@ const ButtonChoice = (props) => {
       </Link>
     </div>
   );
-}
+};
 
 export default ButtonChoice;
