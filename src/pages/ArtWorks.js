@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PaintingsCards from '../components/PaintingsCards';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 class ArtWorks extends React.Component {
   constructor() {
