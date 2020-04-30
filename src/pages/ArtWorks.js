@@ -1,29 +1,36 @@
 import React from 'react';
 import axios from 'axios';
 import PaintingsCards from '../components/PaintingsCards';
+import InfiniteScroll from "react-infinite-scroll-component";
 import '../components/Artworks.css';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
+const elementsPerPage = 6;
+
 class ArtWorks extends React.Component {
   constructor () {
     super();
     this.state = {
-      dataResults: false,
-      value: '',
-      fixDataResult: false
+      dataResults: [],
+      value : '',
+      fixDataResult: [],
+      offSet: 0
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
+  fetchMoreData = async () => {
+    const newOffSet = this.state.offSet + 1;
+    this.setState({offSet : newOffSet});
+    await this.load(newOffSet * elementsPerPage, (newOffSet + 1) * elementsPerPage)
+  }
+
   filterByPeriod (x) {
-    console.log(x);
     if (x === 'BC') {
       this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate <= 0) });
     } else if (x === 'AC') {
-      console.log(this.state.fixDataResult)
-      console.log(this.state.fixDataResult.filter(element => element.objectEndDate > 0))
       this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) });
     } else {
       this.setState({ dataResults: this.state.fixDataResult });
@@ -34,13 +41,17 @@ class ArtWorks extends React.Component {
     this.setState({ value: event.target.value }, () => this.filterByPeriod(this.state.value));
   }
 
-  async componentDidMount () {
+  async load (sliceBegin, sliceEnd) {
     const params = this.props.match.params;
     const searchUrl = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${params.id}&q=travel`;
     const objectIds = await axios.get(searchUrl).then(res => res.data.objectIDs);
-    const dataResults = await Promise.all(objectIds.slice(0, 20).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+    const dataResults = await Promise.all(objectIds.slice(sliceBegin, sliceEnd).map(id => axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.data)));
+    const newDataResult = [...this.state.dataResults, ...dataResults];
+    this.setState({ dataResults: newDataResult, fixDataResult : newDataResult });
+  }
 
-    this.setState({ dataResults: dataResults, fixDataResult: dataResults });
+  async componentDidMount() {
+   this.load(0, elementsPerPage)
   }
 
   render () {
@@ -59,10 +70,15 @@ class ArtWorks extends React.Component {
             </select>
           </label>
         </form>
+         {this.state.dataResults &&
 
-        <div className='paintings-div'>
-          {this.state.dataResults &&
-          this.state.dataResults.map((element) =>
+        <InfiniteScroll
+          dataLength={this.state.dataResults.length}
+          next={this.fetchMoreData}
+          hasMore={true}
+          className='paintings-div'
+        >
+           {this.state.dataResults.map((element) =>
             <PaintingsCards
               key={element.objectID}
               title={element.title}
@@ -76,8 +92,8 @@ class ArtWorks extends React.Component {
               link={element.objectURL}
               culture={element.culture}
             />)}
-        </div>
-        {this.state.dataResults && <Footer />}
+        </InfiniteScroll>
+          }
       </div>
     );
   }
