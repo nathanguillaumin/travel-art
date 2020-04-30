@@ -1,6 +1,5 @@
 import React from 'react';
 import './ButtonStyle.css';
-import ArtWorks from '../pages/ArtWorks';
 import { Link } from 'react-router-dom';
 
 const ButtonChoice = (props) => {

@@ -5,7 +5,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import '../components/Artworks.css';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
 
 const elementsPerPage = 6;
 
@@ -55,7 +54,6 @@ class ArtWorks extends React.Component {
   }
 
   render () {
-    const params = this.props.match.params;
     return (
       <div className='artWorks-page'>
         <Link to={'/'}>
