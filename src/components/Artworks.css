@@ -20,3 +20,17 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.label-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.label-form > span {
+    font-size: 36px;
+}
+
+.label-form > select {
+    margin-top: 20px;
+}

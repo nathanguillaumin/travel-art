@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import PaintingsCards from '../components/PaintingsCards';
 import '../components/Artworks.css';
+import Header from '../components/Header';
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 class ArtWorks extends React.Component {
   constructor () {
@@ -39,8 +42,11 @@ class ArtWorks extends React.Component {
     const params = this.props.match.params;
     return (
       <div className='artWorks-page'>
+        <Link to={'/'}>
+        <Header />
+        </Link>
         <form onSubmit={this.preventSubmit}>
-          <label>Travel by period !
+          <label className='label-form'><span>Travel by period:</span>
             <select value={this.state.value} onChange={this.handleChange}>
               <option>Choose your period</option>
               <option value='BC'>Before Christ</option>
@@ -66,6 +72,7 @@ class ArtWorks extends React.Component {
               culture={element.culture}
             />)}
         </div>
+        {this.state.dataResults && <Footer />}
       </div>
     );
   }
