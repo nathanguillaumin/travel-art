@@ -27,4 +27,9 @@ h1:hover {
     justify-content: center;
     align-items: center;
     margin: 50px;
+    flex-direction: column;
+}
+
+.logo-travel-art {
+    width: 150px;
 }

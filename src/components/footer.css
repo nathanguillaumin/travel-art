@@ -1,5 +1,6 @@
-#root > div > main > div > div > div.footer-copyright.text-center.py-3.footer-style > i {
-   color: red;
+#root > div > main > div > div > div.footer-copyright.text-center.py-3.footer-style > i,
+#root > div > main > div > div.footer-copyright.text-center.py-3.footer-style > i {
+   color: red !important;
 }
 
 .footer-copyright {

@@ -6,7 +6,6 @@
 h1{
     font-size: 3em;
     font-weight: bolder;
-    
 }
 
 .header {
@@ -23,4 +22,13 @@ main {
 
 #root > div > main > div > div > h2 {
     font-family: 'Nunito';
+}
+
+a > button:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 2px grey;
+}
+
+a > button:active {
+    outline-style: none;
 }

@@ -10,10 +10,22 @@
     align-items: center;
 }
 
+#root > div > main > div > a:hover {
+    text-decoration: none;
+}
+
 .painting-cards {
     width: 18rem;
     margin: 30px 30px;
     font-family: 'Nunito';
+    background-color: #bc9a62 !important;
+}
+
+.painting-cards > .card-body > a {
+    background-color: #e8ddc9;
+    border-color: #e8ddc9;
+    color: black;
+    font-weight: 600;
 }
 
 .card-img, .card-img-top{
@@ -48,4 +60,9 @@
 
 .label-form > select {
     margin-top: 20px;
+}
+
+.card-title{
+    font-weight: bold !important;
+    font-size: 20px;
 }

@@ -12,7 +12,7 @@ function Home() {
         <Header />
         <h2>Welcome on Travel Art Website</h2>
         <NavLink exact to='/' className='home' />
-        <NavLink exact to='/art-works/:id' className='ArtWorks'><ListChoice /></NavLink>
+        <ListChoice />
         <Footer />
       </div>
     </div>

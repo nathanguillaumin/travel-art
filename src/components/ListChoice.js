@@ -76,7 +76,12 @@ class ListChoice extends Component {
   render () {
     return (
       <div className='div-buttons'>
-        {themes.map(element => <ButtonChoice className={element.class} onClick={() => this.handleClick(element.displayName, element.departmentId)} id={element.departmentId} name={element.displayName} key={element.departmentId} />)}
+        {themes.map(element => <ButtonChoice 
+          className={element.class} 
+          onClick={() => this.handleClick(element.displayName, element.departmentId)} 
+          id={element.departmentId} 
+          name={element.displayName} 
+          key={element.departmentId} />)}
       </div>
     );
   }

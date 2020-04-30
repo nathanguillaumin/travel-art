@@ -8,11 +8,11 @@ const PaintingsCards = (props) => {
     <Card className = 'painting-cards'>
       <Card.Img variant='top' src={props.image} />
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
+        <Card.Title><h2 className='card-title'>{props.title}</h2></Card.Title>
         <Card.Text>
-          <span className='bold'>Artist:</span> {props.artist ? props.artist : props.creditLine}<br/>
-          <span className='bold'>Date:</span>{props.date}<br/>
-          <span className='bold'>Origin:</span>{props.country ? props.country : props.culture}
+          <span className='bold'>Artist: </span>{props.artist ? props.artist : props.creditLine}<br/>
+          <span className='bold'>Date: </span>{props.date}<br/>
+          <span className='bold'>Origin: </span>{props.country ? props.country : props.culture}
         </Card.Text>
         <Button href={props.link} variant='primary'>View more</Button>
       </Card.Body>
