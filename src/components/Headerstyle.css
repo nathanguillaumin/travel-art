@@ -11,3 +11,8 @@ h1{
     float: left;
     margin: 15px;
 }
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
