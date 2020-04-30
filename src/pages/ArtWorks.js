@@ -18,10 +18,15 @@ class ArtWorks extends React.Component {
   }
 
   filterByPeriod (x) {
+    console.log(x);
     if (x === 'BC') {
       this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate <= 0) });
-    } else {
+    } else if (x === 'AC') {
+      console.log(this.state.fixDataResult)
+      console.log(this.state.fixDataResult.filter(element => element.objectEndDate > 0))
       this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) });
+    } else {
+      this.setState({ dataResults: this.state.fixDataResult });
     }
   }
 
@@ -59,7 +64,7 @@ class ArtWorks extends React.Component {
           {this.state.dataResults &&
           this.state.dataResults.map((element) =>
             <PaintingsCards
-              key={element.title}
+              key={element.objectID}
               title={element.title}
               artist={element.artistDisplayName}
               creditLine={element.creditLine}

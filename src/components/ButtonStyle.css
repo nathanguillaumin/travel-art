@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito'), url(../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+  }
+
 .Button1{
     width: 70%;
     height: 60px;
@@ -8,6 +13,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button2{
     width: 70%;
@@ -19,6 +25,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button3{
     width: 70%;
@@ -30,6 +37,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button4{
     width: 70%;
@@ -41,6 +49,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button5{
     width: 70%;
@@ -52,6 +61,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button6{
     width: 70%;
@@ -63,6 +73,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button7{
     width: 70%;
@@ -74,6 +85,7 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
 }
 .Button8{
     width: 70%;
@@ -85,4 +97,9 @@
     font-weight: bolder;
     color: #fff;
     margin-top: 30px;
+    font-family: 'Nunito';
+}
+
+.div-buttons {
+    margin: 0 50px;
 }

@@ -7,7 +7,7 @@ const ButtonChoice = (props) => {
   return (
     <div>
       <Link to={`/art-works/${props.id}`}>
-        <button className={props.className} onClick={<ArtWorks />} value={props.name}>{props.name}</button>
+        <button className={props.className} value={props.name}>{props.name}</button>
       </Link>
     </div>
   );

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito'), url(../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+  }
+
 .artWorks-page {
     display: flex;
     flex-direction: column;
@@ -8,6 +13,7 @@
 .painting-cards {
     width: 18rem;
     margin: 30px 30px;
+    font-family: 'Nunito';
 }
 
 .card-img, .card-img-top{
@@ -32,10 +38,12 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .label-form > span {
     font-size: 36px;
+    font-family: 'Nunito';
 }
 
 .label-form > select {

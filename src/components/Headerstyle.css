@@ -10,9 +10,21 @@ h1{
     font-stretch: extra-expanded;
     float: left;
     margin: 15px;
+    text-decoration: none;
+}
+
+h1:hover {
+    text-decoration: none;
 }
 
 .header{
     display: flex;
     flex-direction: column;
+}
+
+.header-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
 }
