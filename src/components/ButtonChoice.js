@@ -11,6 +11,6 @@ const ButtonChoice = (props) => {
       </Link>
     </div>
   );
-}
+};
 
 export default ButtonChoice;
