@@ -2,11 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import PaintingsCards from '../components/PaintingsCards';
 import InfiniteScroll from "react-infinite-scroll-component";
+import '../components/Artworks.css';
+import Header from '../components/Header';
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const elementsPerPage = 5;
 
 class ArtWorks extends React.Component {
-  constructor() {
+  constructor () {
     super();
     this.state = {
       dataResults: [],
@@ -24,15 +28,15 @@ class ArtWorks extends React.Component {
     console.log(this.state.dataResults)
   }
 
-  filterByPeriod(x) {
+  filterByPeriod (x) {
     if (x === 'BC') {
-      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate <= 0) })
+      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate <= 0) });
     } else {
-      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) })
+      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) });
     }
   }
 
-  handleChange(event) {
+  handleChange (event) {
     this.setState({ value: event.target.value }, () => this.filterByPeriod(this.state.value));
   }
 
@@ -49,15 +53,19 @@ class ArtWorks extends React.Component {
    this.load(0, elementsPerPage)
   }
 
-  render() {
+  render () {
     const params = this.props.match.params;
     return (
-      <div>
+      <div className='artWorks-page'>
+        <Link to={'/'}>
+        <Header />
+        </Link>
         <form onSubmit={this.preventSubmit}>
-          <label>Travel by period !
+          <label className='label-form'><span>Travel by period:</span>
             <select value={this.state.value} onChange={this.handleChange}>
-              <option value="BC">Before Christ</option>
-              <option value="AC">After Christ</option>
+              <option>Choose your period</option>
+              <option value='BC'>Before Christ</option>
+              <option value='AC'>After Christ</option>
             </select>
           </label>
         </form>
@@ -73,11 +81,14 @@ class ArtWorks extends React.Component {
               key={element.objectID}
               title={element.title}
               artist={element.artistDisplayName}
+              creditLine={element.creditLine}
               date={element.objectDate}
               country={element.country}
               image={element.primaryImageSmall}
               comments={element.creditLine}
               EndDate={element.objectEndDate}
+              link={element.objectURL}
+              culture={element.culture}
             />)}
         </InfiniteScroll>
           }
@@ -85,9 +96,5 @@ class ArtWorks extends React.Component {
     );
   }
 }
-
-
-
-
 
 export default ArtWorks;
