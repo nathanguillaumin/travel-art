@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ButtonChoice from './ButtonChoice';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import './ButtonStyle.css';
 
 const themes =
