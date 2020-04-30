@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 const PaintingsCards = (props) => {
   return (
-    <Card className = 'painting-cards'>
+    <Card className='painting-cards'>
       <Card.Img variant='top' src={props.image} />
       <Card.Body>
         <Card.Title><h2 className='card-title'>{props.title}</h2></Card.Title>

@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './Home.css';
 
-function Home() {
+function Home () {
   return (
     <div className='div-home'>
       <div className='header'>

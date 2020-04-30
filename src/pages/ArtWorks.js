@@ -5,7 +5,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import '../components/Artworks.css';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
 
 
 const elementsPerPage = 6;
@@ -26,15 +25,14 @@ class ArtWorks extends React.Component {
     const newOffSet = this.state.offSet + 1;
     this.setState({offSet : newOffSet});
     await this.load(newOffSet * elementsPerPage, (newOffSet + 1) * elementsPerPage)
+    console.log(this.state.dataResults)
   }
 
   filterByPeriod (x) {
     if (x === 'BC') {
       this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate <= 0) });
-    } else if (x === 'AC') {
-      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) });
     } else {
-      this.setState({ dataResults: this.state.fixDataResult });
+      this.setState({ dataResults: this.state.fixDataResult.filter(element => element.objectEndDate > 0) });
     }
   }
 
@@ -56,7 +54,6 @@ class ArtWorks extends React.Component {
   }
 
   render () {
-    const params = this.props.match.params;
     return (
       <div className='artWorks-page'>
         <Link to={'/'}>
@@ -95,7 +92,6 @@ class ArtWorks extends React.Component {
             />)}
         </InfiniteScroll>
           }
-        <Footer />
       </div>
     );
   }
