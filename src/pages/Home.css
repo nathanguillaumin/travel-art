@@ -22,6 +22,8 @@ main {
 
 #root > div > main > div > div > h2 {
     font-family: 'Nunito';
+    color: #853e00;
+    font-size: 40px;
 }
 
 a > button:hover {

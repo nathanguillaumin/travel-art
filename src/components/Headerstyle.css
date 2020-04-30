@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 h1{
     font-size: 7vw;
     background-image: url(../images/logo.jpg);
@@ -11,6 +13,8 @@ h1{
     float: left;
     margin: 15px;
     text-decoration: none;
+    font-weight: 700;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 h1:hover {
