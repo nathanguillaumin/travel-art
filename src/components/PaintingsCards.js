@@ -14,7 +14,7 @@ const PaintingsCards = (props) => {
           <span className='bold'>Date: </span>{props.date}<br/>
           <span className='bold'>Origin: </span>{props.country ? props.country : props.culture}
         </Card.Text>
-        <Button href={props.link} variant='primary'>View more</Button>
+        <Button href={props.link} target="_blank" variant='primary'>View more</Button>
       </Card.Body>
     </Card>
   );
